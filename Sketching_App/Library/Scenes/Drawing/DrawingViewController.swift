@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DrawingViewController.swift
 //  Sketching_App
 //
 //  Created by Esraa on 14/06/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DrawingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
