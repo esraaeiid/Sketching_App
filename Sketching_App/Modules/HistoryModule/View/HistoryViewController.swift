@@ -1,5 +1,5 @@
 //
-//  DrawingViewController.swift
+//  HistoryViewController.swift
 //  Sketching_App
 //
 //  Created by Esraa on 14/06/2022.
@@ -7,13 +7,16 @@
 
 import UIKit
 
-class DrawingViewController: UIViewController {
+class HistoryViewController: UIViewController {
+
+    // MARK: - IBOutlets
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
+    
 
 
 }
-

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,10 +17,83 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QqG-b1-WnA" userLabel="canvasView" customClass="PKCanvasView">
+                                <rect key="frame" x="0.0" y="94" width="414" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nrg-N9-kml" userLabel="drawingOptionsStackView">
+                                <rect key="frame" x="0.0" y="35" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="E1a-Lw-x5X" userLabel="finalizeDrawingButton">
+                                        <rect key="frame" x="0.0" y="17" width="18.5" height="16.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="backgroundImage" image="checkmark" catalog="system" symbolScale="default"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="finalizeDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AVD-op-bWA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sZ2-ic-3O2" userLabel="editDrawingButton">
+                                        <rect key="frame" x="95.5" y="19.5" width="24.5" height="11"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="ruler" catalog="system"/>
+                                        <connections>
+                                            <action selector="editDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UDE-GL-Tm7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="FOv-5E-vfa" userLabel="startDrawingButton">
+                                        <rect key="frame" x="195.5" y="14" width="20.5" height="20.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="pencil.and.outline" catalog="system"/>
+                                        <connections>
+                                            <action selector="startDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SAJ-6w-q4w"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="8p4-FK-mAf" userLabel="uploadImageButton">
+                                        <rect key="frame" x="292" y="15.5" width="24.5" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="camera" catalog="system"/>
+                                        <connections>
+                                            <action selector="uploadImageButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RnQ-lr-BMp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEP-Nm-XNV" userLabel="expandDrawingButton">
+                                        <rect key="frame" x="391" y="14" width="23" height="22"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="rectangle.expand.vertical" catalog="system"/>
+                                        <connections>
+                                            <action selector="expandDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="82v-zL-LzS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6Fq-Vc-uAc"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4Pt-lL-1s5"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="QqG-b1-WnA" firstAttribute="leading" secondItem="4Pt-lL-1s5" secondAttribute="leading" id="B9e-zi-2gf"/>
+                            <constraint firstItem="QqG-b1-WnA" firstAttribute="top" secondItem="4Pt-lL-1s5" secondAttribute="top" constant="50" id="Dzc-ip-Fx4"/>
+                            <constraint firstItem="Nrg-N9-kml" firstAttribute="trailing" secondItem="4Pt-lL-1s5" secondAttribute="trailing" id="Ica-73-cxD"/>
+                            <constraint firstItem="Nrg-N9-kml" firstAttribute="leading" secondItem="4Pt-lL-1s5" secondAttribute="leading" id="SZd-Yd-W60"/>
+                            <constraint firstItem="4Pt-lL-1s5" firstAttribute="bottom" secondItem="QqG-b1-WnA" secondAttribute="bottom" id="Tu4-nX-Z6x"/>
+                            <constraint firstItem="Nrg-N9-kml" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="35" id="Xlb-CM-yqM"/>
+                            <constraint firstItem="4Pt-lL-1s5" firstAttribute="trailing" secondItem="QqG-b1-WnA" secondAttribute="trailing" id="rIR-LF-Ssf"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Draw" image="scribble" catalog="system" selectedImage="scribble" id="Amm-pW-FOZ" userLabel="Draw"/>
+                    <connections>
+                        <outlet property="canvasView" destination="QqG-b1-WnA" id="nHP-dZ-uzR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -32,7 +106,7 @@
                     <view key="view" contentMode="scaleToFill" id="TsT-RC-hJO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="uA9-lt-gDz"/>
+                        <viewLayoutGuide key="safeArea" id="3AF-vA-cJp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="PRm-5q-vcN" userLabel="History"/>
@@ -47,6 +121,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="C0x-Hl-uSe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yc2-PI-oJ7">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -61,9 +136,20 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
+        <image name="rectangle.expand.vertical" catalog="system" width="128" height="122"/>
+        <image name="ruler" catalog="system" width="128" height="57"/>
         <image name="scribble" catalog="system" width="128" height="118"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
