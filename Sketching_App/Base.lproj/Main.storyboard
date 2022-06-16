@@ -7,6 +7,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -106,14 +107,56 @@
                     <view key="view" contentMode="scaleToFill" id="TsT-RC-hJO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9kI-i3-dcC">
+                                <rect key="frame" x="0.0" y="32" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6ar-yW-Cec"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hA2-UR-BTb">
+                                <rect key="frame" x="0.0" y="82" width="414" height="731"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r5S-XQ-WOV">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="ZbB-wl-hEe">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LfB-zx-820" customClass="HistoryCollectionViewCell" customModule="Sketching_App" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3AF-vA-cJp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hA2-UR-BTb" firstAttribute="top" secondItem="9kI-i3-dcC" secondAttribute="bottom" id="Bl0-bK-hFK"/>
+                            <constraint firstItem="3AF-vA-cJp" firstAttribute="bottom" secondItem="hA2-UR-BTb" secondAttribute="bottom" id="HgD-Xg-osp"/>
+                            <constraint firstItem="9kI-i3-dcC" firstAttribute="trailing" secondItem="3AF-vA-cJp" secondAttribute="trailing" id="XnR-Ku-yUn"/>
+                            <constraint firstItem="9kI-i3-dcC" firstAttribute="leading" secondItem="3AF-vA-cJp" secondAttribute="leading" id="dch-E8-94c"/>
+                            <constraint firstItem="hA2-UR-BTb" firstAttribute="leading" secondItem="3AF-vA-cJp" secondAttribute="leading" id="fHz-7L-swG"/>
+                            <constraint firstItem="3AF-vA-cJp" firstAttribute="trailing" secondItem="hA2-UR-BTb" secondAttribute="trailing" id="whN-ml-fDJ"/>
+                            <constraint firstItem="9kI-i3-dcC" firstAttribute="top" secondItem="TsT-RC-hJO" secondAttribute="top" constant="32" id="x4J-db-XEp"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="PRm-5q-vcN" userLabel="History"/>
+                    <connections>
+                        <outlet property="historyCollectionView" destination="hA2-UR-BTb" id="ScQ-7O-6zP"/>
+                        <outlet property="searchBar" destination="9kI-i3-dcC" id="mpC-ao-lpI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOB-7C-qki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="-56"/>
+            <point key="canvasLocation" x="1147.8260869565217" y="-56.25"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dcm-kf-L6d">
