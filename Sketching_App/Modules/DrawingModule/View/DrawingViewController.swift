@@ -3,7 +3,7 @@
 //  Sketching_App
 //
 //  Created by Esraa on 14/06/2022.
-///Users/esraa/Desktop/Sketching_App/Sketching_App.xcodeproj
+
 
 import UIKit
 import PencilKit
@@ -22,14 +22,14 @@ class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPicke
 
     //finalizeDrawing StackView
 
+    var drawingModel: DrawingModel?
 
-
-    var drawing = PKDrawing()
     var toolPicker: PKToolPicker!
     let canvasWidth: CGFloat = 768
     var hasModifiedDrawing = false
     var isPenSelected = false
 
+    private var coreDataStorage = CoreDataStorage.instance
 
     /// Standard amount of overscroll allowed in the canvas.
     static let canvasOverscrollHeight: CGFloat = 500
@@ -39,7 +39,7 @@ class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPicke
     ///
     func setupCanvasView(){
         canvasView.delegate = self
-        canvasView.drawing = drawing
+        canvasView.drawing = drawingModel?.drawing ?? PKDrawing()
         canvasView.alwaysBounceVertical = false
         canvasView.drawingPolicy = .anyInput
 
@@ -87,7 +87,19 @@ class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPicke
 
     //drawingOptions StackView Actions
     @IBAction func finalizeDrawingButtonAction(_ sender: UIButton) {
-        print("1")
+      
+        if let drawingModel = drawingModel {
+            coreDataStorage.saveDrawing(completionHandler: { isSaved in
+                print("Saved!")
+            }, model: drawingModel)
+        } else {
+            drawingModel = .init(id: .init(), drawing: .init(), name: "TEST",
+                                 date: .init(), thumbnail: UIImage())
+            coreDataStorage.saveDrawing(completionHandler: { isSaved in
+                print("Saved!")
+            }, model: drawingModel)
+        }
+
     }
 
     @IBAction func editDrawingButtonAction(_ sender: UIButton) {

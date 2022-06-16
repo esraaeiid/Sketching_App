@@ -11,12 +11,15 @@
 		0231ED572859169E00F5EEB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231ED562859169E00F5EEB5 /* SceneDelegate.swift */; };
 		0231ED592859169E00F5EEB5 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231ED582859169E00F5EEB5 /* DrawingViewController.swift */; };
 		0231ED5C2859169E00F5EEB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0231ED5A2859169E00F5EEB5 /* Main.storyboard */; };
-		0231ED5F2859169E00F5EEB5 /* Sketching_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0231ED5D2859169E00F5EEB5 /* Sketching_App.xcdatamodeld */; };
 		0231ED61285916A100F5EEB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0231ED60285916A100F5EEB5 /* Assets.xcassets */; };
 		0231ED64285916A100F5EEB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0231ED62285916A100F5EEB5 /* LaunchScreen.storyboard */; };
 		0231ED6C2859255000F5EEB5 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231ED6B2859255000F5EEB5 /* HistoryViewController.swift */; };
 		025978CE2859C0FD006D82D0 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978CD2859C0FD006D82D0 /* DrawingModel.swift */; };
 		025978D02859C14D006D82D0 /* DrawingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978CF2859C14D006D82D0 /* DrawingPresenter.swift */; };
+		025978DB285A576D006D82D0 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978DA285A576D006D82D0 /* CoreDataStorage.swift */; };
+		025978DD285A5781006D82D0 /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978DC285A5781006D82D0 /* InternetConnectivity.swift */; };
+		025978DF285A57C4006D82D0 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978DE285A57C4006D82D0 /* Errors.swift */; };
+		025978E5285AAD59006D82D0 /* SketchingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 025978E3285AAD59006D82D0 /* SketchingApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,13 +28,16 @@
 		0231ED562859169E00F5EEB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0231ED582859169E00F5EEB5 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		0231ED5B2859169E00F5EEB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0231ED5E2859169E00F5EEB5 /* Sketching_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sketching_App.xcdatamodel; sourceTree = "<group>"; };
 		0231ED60285916A100F5EEB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0231ED63285916A100F5EEB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0231ED65285916A100F5EEB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0231ED6B2859255000F5EEB5 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		025978CD2859C0FD006D82D0 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
 		025978CF2859C14D006D82D0 /* DrawingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingPresenter.swift; sourceTree = "<group>"; };
+		025978DA285A576D006D82D0 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		025978DC285A5781006D82D0 /* InternetConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectivity.swift; sourceTree = "<group>"; };
+		025978DE285A57C4006D82D0 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		025978E4285AAD59006D82D0 /* SketchingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SketchingApp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +80,7 @@
 				0231ED60285916A100F5EEB5 /* Assets.xcassets */,
 				0231ED62285916A100F5EEB5 /* LaunchScreen.storyboard */,
 				0231ED65285916A100F5EEB5 /* Info.plist */,
-				0231ED5D2859169E00F5EEB5 /* Sketching_App.xcdatamodeld */,
+				025978E3285AAD59006D82D0 /* SketchingApp.xcdatamodeld */,
 			);
 			path = Sketching_App;
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 		025978C62859BF04006D82D0 /* DataStorage */ = {
 			isa = PBXGroup;
 			children = (
+				025978DA285A576D006D82D0 /* CoreDataStorage.swift */,
 			);
 			path = DataStorage;
 			sourceTree = "<group>";
@@ -144,6 +151,7 @@
 		025978C72859BF1C006D82D0 /* Connectivity */ = {
 			isa = PBXGroup;
 			children = (
+				025978DC285A5781006D82D0 /* InternetConnectivity.swift */,
 			);
 			path = Connectivity;
 			sourceTree = "<group>";
@@ -211,6 +219,7 @@
 		025978D42859C469006D82D0 /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				025978DE285A57C4006D82D0 /* Errors.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -286,10 +295,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025978DD285A5781006D82D0 /* InternetConnectivity.swift in Sources */,
+				025978DB285A576D006D82D0 /* CoreDataStorage.swift in Sources */,
 				0231ED592859169E00F5EEB5 /* DrawingViewController.swift in Sources */,
 				0231ED552859169E00F5EEB5 /* AppDelegate.swift in Sources */,
-				0231ED5F2859169E00F5EEB5 /* Sketching_App.xcdatamodeld in Sources */,
+				025978E5285AAD59006D82D0 /* SketchingApp.xcdatamodeld in Sources */,
 				025978D02859C14D006D82D0 /* DrawingPresenter.swift in Sources */,
+				025978DF285A57C4006D82D0 /* Errors.swift in Sources */,
 				0231ED6C2859255000F5EEB5 /* HistoryViewController.swift in Sources */,
 				025978CE2859C0FD006D82D0 /* DrawingModel.swift in Sources */,
 				0231ED572859169E00F5EEB5 /* SceneDelegate.swift in Sources */,
@@ -518,13 +530,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		0231ED5D2859169E00F5EEB5 /* Sketching_App.xcdatamodeld */ = {
+		025978E3285AAD59006D82D0 /* SketchingApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				0231ED5E2859169E00F5EEB5 /* Sketching_App.xcdatamodel */,
+				025978E4285AAD59006D82D0 /* SketchingApp.xcdatamodel */,
 			);
-			currentVersion = 0231ED5E2859169E00F5EEB5 /* Sketching_App.xcdatamodel */;
-			path = Sketching_App.xcdatamodeld;
+			currentVersion = 025978E4285AAD59006D82D0 /* SketchingApp.xcdatamodel */;
+			name = SketchingApp.xcdatamodeld;
+			path = ../SketchingApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
