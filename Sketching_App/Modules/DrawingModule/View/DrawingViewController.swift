@@ -29,6 +29,8 @@ class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPicke
     var hasModifiedDrawing = false
     var isPenSelected = false
 
+    var undoedStrokes:  [PKStroke] = []
+
     private var coreDataStorage = CoreDataStorage.instance
 
     /// Standard amount of overscroll allowed in the canvas.
@@ -103,11 +105,11 @@ class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPicke
     }
 
     @IBAction func editDrawingButtonAction(_ sender: UIButton) {
-        print("2")
+
     }
 
     @IBAction func uploadImageButtonAction(_ sender: UIButton) {
-        print("3")
+
     }
 
     @IBAction func expandDrawingButtonAction(_ sender: UIButton) {
@@ -191,12 +193,44 @@ class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPicke
     }
 
 
+    func undoDrawing(){
+        for stroke in canvasView.drawing.strokes{
+            undoedStrokes.append(stroke)
+        }
+
+       _ = canvasView.drawing.strokes.popLast()
+    }
+
+    func redoDrawing(){
+        for stroke in undoedStrokes {
+            canvasView.drawing.strokes.append(stroke)
+        }
+    }
+
+
+    func deleteAllDrawing(){
+
+    }
+
+    func deleteSelectedDrawing(){
+        //tap gesture should be implemented here!
+    }
+
+    func uploadImage(){
+
+    }
+
+
+
     //MARK: - PKCanvasViewDelegate Methods
 
     /// Tells the delegate that the contents of the current drawing changed.
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         hasModifiedDrawing = true
         updateContentSizeForDrawing()
+        print("change!!!!!!",  canvasView.drawing.strokes.count)
+
+
     }
 
 

@@ -60,7 +60,7 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
             assertionFailure("couldn't load HistoryCollectionViewCell")
             return UICollectionViewCell()
         }
-        cell.drawingInfo = drawings[indexPath.row]
+//        cell.drawingInfo = drawings[indexPath.row]
         cell.configure()
         cell.delegate = self
 
