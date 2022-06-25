@@ -47,10 +47,7 @@ class DrawingPresenter: DrawingPresenterProtocol {
             //should show selected drawing
             self.output?.update(.finishedWithSuccess(.drawingCanvas(drawing)))
         } else {
-            drawing = .init()
-            drawing?.drawing =  PKDrawing()
             self.output?.update(.finishedWithSuccess(.drawingCanvas(drawing ?? .init())))
-            print("emptey canvas")
         }
 
     }

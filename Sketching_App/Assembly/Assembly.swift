@@ -15,10 +15,10 @@ protocol Assembly {
 
 class MainAssembly: Assembly {
 
-    private let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    private let storyboard = UIStoryboard(name: StoryboardIdentifier.main.rawValue, bundle: nil)
 
     func drawingController(_ router: Router?) -> UIViewController  {
-        guard let drawingViewController = storyboard.instantiateViewController(withIdentifier: "DrawingViewController") as? DrawingViewController else {
+        guard let drawingViewController = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifier.drawingVC.rawValue) as? DrawingViewController else {
                   return  UIViewController()
               }
 
@@ -32,14 +32,14 @@ class MainAssembly: Assembly {
 
 
     func historyController(_ router: Router?) -> UIViewController {
-        guard let historyViewController = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as? HistoryViewController else {
+        guard let historyViewController = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifier.historyVC.rawValue) as? HistoryViewController else {
                   return UIViewController()
               }
 
         return historyViewController
     }
 
-
+/// StoryboardIdentifier
     enum StoryboardIdentifier: String {
         case main = "Main"
         case drawingVC = "DrawingViewController"

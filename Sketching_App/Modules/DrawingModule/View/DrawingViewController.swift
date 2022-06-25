@@ -32,8 +32,7 @@ class DrawingViewController: UIViewController {
 
     private var coreDataStorage = CoreDataStorage.instance
 
-    /// Standard amount of overscroll allowed in the canvas.
-    static let canvasOverscrollHeight: CGFloat = 500
+
 
     ///
     /// setup canvasView
@@ -50,19 +49,11 @@ class DrawingViewController: UIViewController {
         setupCanvasView()
     }
 
-    // When the view is resized, adjust the canvas scale so that it is zoomed to the default `canvasWidth`.
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
-//        let canvasScale = canvasView.bounds.width / dataSourceManager?.canvasWidth
-//        canvasView.minimumZoomScale = canvasScale
-//        canvasView.maximumZoomScale = canvasScale
-//        canvasView.zoomScale = canvasScale
-//
-//        // Scroll to the top.
-//        dataSourceManager?.updateContentSizeForDrawing()
-//        canvasView.contentOffset = CGPoint(x: 0, y: -canvasView.adjustedContentInset.top)
+        dataSourceManager?.updateContentSizeForDrawing()
     }
+
 
     public func setManager(_ manager: DrawingManagerProtocol?) {
         self.dataSourceManager = manager
@@ -135,6 +126,8 @@ class DrawingViewController: UIViewController {
         }
 
     }
+
+    
 
 
 
@@ -232,12 +225,15 @@ extension DrawingViewController: DrawingManagerDelegate {
 //MARK: - PresenterOutput
 
 extension DrawingViewController: PresenterOutput {
+    
     func update(_ viewState: ViewState) {
         switch viewState {
         case .finishedWithSuccess(let successType):
             switch successType {
+
             case .drawingCanvas(let drawingModel):
                 dataSourceManager?.update(drawingModel)
+
             case .drawingCanvasExpanded(let bool):
                 if bool {
                     //expand

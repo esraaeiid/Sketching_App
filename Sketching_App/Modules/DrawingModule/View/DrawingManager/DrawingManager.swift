@@ -14,6 +14,7 @@ protocol DrawingManagerProtocol {
     func setup()
     func update(_ model: DrawingModel)
     func setDelegate(_ delegate: DrawingManagerDelegate?)
+    func updateContentSizeForDrawing()
 }
 
 enum DeleteDrawingMode{
@@ -40,19 +41,20 @@ class DrawingManager: NSObject, DrawingManagerProtocol {
 
     var view: UIView?
     var canvasView: PKCanvasView?
-    var drawingModel: DrawingModel = .init() {
-        didSet{
-            canvasView?.drawing = drawingModel.drawing ?? PKDrawing()
-        }
-    }
+    var drawingModel: DrawingModel = .init()
     var toolPicker: PKToolPicker!
     var hasModifiedDrawing = false
     let canvasWidth: CGFloat = 768
+
+
+    /// Standard amount of overscroll allowed in the canvas.
+    static let canvasOverscrollHeight: CGFloat = 500
 
     weak var delegate: DrawingManagerDelegate?
     
     func setup() {
         canvasView?.delegate = self
+        canvasView?.drawing = PKDrawing() // default value
         canvasView?.alwaysBounceVertical = false
         canvasView?.drawingPolicy = .anyInput
 
@@ -66,8 +68,6 @@ class DrawingManager: NSObject, DrawingManagerProtocol {
             toolPicker.addObserver(self)
         }
 
-
-
         updateLayout(for: toolPicker)
         canvasView?.becomeFirstResponder()
     }
@@ -79,9 +79,7 @@ class DrawingManager: NSObject, DrawingManagerProtocol {
         if obscuredFrame.isNull {
             canvasView?.contentInset = .zero
         }
-
-        // Otherwise, the bottom of the canvas should be inset to the top of the
-        // tool picker
+        // Otherwise, the bottom of the canvas should be inset to the top of the tool picker
         else {
             canvasView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: view?.bounds.maxY ?? 0 - obscuredFrame.minY, right: 0)
         }
@@ -91,6 +89,7 @@ class DrawingManager: NSObject, DrawingManagerProtocol {
 
     func update(_ model: DrawingModel) {
         self.drawingModel = model
+        canvasView?.drawing = drawingModel.drawing ?? PKDrawing()
     }
 
     func setDelegate(_ delegate: DrawingManagerDelegate?) {
@@ -125,14 +124,19 @@ extension DrawingManager: PKCanvasViewDelegate{
         let drawing = canvasView?.drawing
         let contentHeight: CGFloat
 
-        // Adjust the content size to always be bigger than the drawing height.
-        if !(drawing?.bounds.isNull ?? false) {
-            contentHeight = max(canvasView?.bounds.height ?? 0,
-                                ((drawing?.bounds.maxY ?? 0) + DrawingViewController.canvasOverscrollHeight) * (canvasView?.zoomScale ?? 0))
-        } else {
-            contentHeight = canvasView?.bounds.height ?? 0
+        if let drawing = drawing,  let canvasView = canvasView {
+            // Adjust the content size to always be bigger than the drawing height.
+            if !(drawing.bounds.isNull)  {
+                contentHeight = max(canvasView.bounds.height, (drawing.bounds.maxY + DrawingManager.canvasOverscrollHeight) * canvasView.zoomScale)
+
+            } else {
+                contentHeight = canvasView.bounds.height
+            }
+            canvasView.contentSize = CGSize(width: canvasWidth * canvasView.zoomScale, height: contentHeight)
+
         }
-        canvasView?.contentSize = CGSize(width: canvasWidth * (canvasView?.zoomScale ?? 0) , height: contentHeight)
+
+
 
     }
     
