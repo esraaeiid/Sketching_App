@@ -15,13 +15,18 @@
 		0231ED64285916A100F5EEB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0231ED62285916A100F5EEB5 /* LaunchScreen.storyboard */; };
 		0231ED6C2859255000F5EEB5 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231ED6B2859255000F5EEB5 /* HistoryViewController.swift */; };
 		025978CE2859C0FD006D82D0 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978CD2859C0FD006D82D0 /* DrawingModel.swift */; };
-		025978D02859C14D006D82D0 /* DrawingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978CF2859C14D006D82D0 /* DrawingPresenter.swift */; };
+		025978D02859C14D006D82D0 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978CF2859C14D006D82D0 /* Presenter.swift */; };
 		025978DB285A576D006D82D0 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978DA285A576D006D82D0 /* CoreDataStorage.swift */; };
 		025978DD285A5781006D82D0 /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978DC285A5781006D82D0 /* InternetConnectivity.swift */; };
 		025978DF285A57C4006D82D0 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025978DE285A57C4006D82D0 /* Errors.swift */; };
 		025978E5285AAD59006D82D0 /* SketchingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 025978E3285AAD59006D82D0 /* SketchingApp.xcdatamodeld */; };
+		026A4B092864E96D007E32EB /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026A4B082864E96D007E32EB /* Assembly.swift */; };
 		027546C8285B1AD60076642E /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027546C6285B1AD60076642E /* HistoryCell.swift */; };
 		027546C9285B1AD60076642E /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 027546C7285B1AD60076642E /* HistoryCell.xib */; };
+		027546CB285BCC2B0076642E /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027546CA285BCC2B0076642E /* HistoryPresenter.swift */; };
+		027546CD285BCCA50076642E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027546CC285BCCA50076642E /* Router.swift */; };
+		027546D1285BE4FC0076642E /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027546D0285BE4FC0076642E /* HistoryManager.swift */; };
+		027546DC285BFC9F0076642E /* DrawingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027546DB285BFC9F0076642E /* DrawingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,13 +40,18 @@
 		0231ED65285916A100F5EEB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0231ED6B2859255000F5EEB5 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		025978CD2859C0FD006D82D0 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
-		025978CF2859C14D006D82D0 /* DrawingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingPresenter.swift; sourceTree = "<group>"; };
+		025978CF2859C14D006D82D0 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		025978DA285A576D006D82D0 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		025978DC285A5781006D82D0 /* InternetConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectivity.swift; sourceTree = "<group>"; };
 		025978DE285A57C4006D82D0 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		025978E4285AAD59006D82D0 /* SketchingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SketchingApp.xcdatamodel; sourceTree = "<group>"; };
+		026A4B082864E96D007E32EB /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		027546C6285B1AD60076642E /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		027546C7285B1AD60076642E /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		027546CA285BCC2B0076642E /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
+		027546CC285BCCA50076642E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		027546D0285BE4FC0076642E /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
+		027546DB285BFC9F0076642E /* DrawingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +87,8 @@
 				025978C42859BEC7006D82D0 /* App */,
 				025978C52859BEE9006D82D0 /* Services  */,
 				025978C82859BFB2006D82D0 /* Router */,
-				025978C92859BFEA006D82D0 /* Assembly */,
+				026A4B072864E94C007E32EB /* Assembly */,
+				025978CB2859C0A8006D82D0 /* Model */,
 				0231ED6E285930EF00F5EEB5 /* Modules */,
 				0231ED722859327F00F5EEB5 /* Extensions */,
 				0231ED5A2859169E00F5EEB5 /* Main.storyboard */,
@@ -103,7 +114,6 @@
 			children = (
 				025978CC2859C0B4006D82D0 /* Presenter */,
 				025978CA2859C09B006D82D0 /* View */,
-				025978CB2859C0A8006D82D0 /* Model */,
 			);
 			path = DrawingModule;
 			sourceTree = "<group>";
@@ -113,7 +123,6 @@
 			children = (
 				025978D12859C3E6006D82D0 /* Presenter */,
 				025978D22859C3F0006D82D0 /* View */,
-				025978D32859C3F6006D82D0 /* Model */,
 			);
 			path = HistoryModule;
 			sourceTree = "<group>";
@@ -163,20 +172,15 @@
 		025978C82859BFB2006D82D0 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				027546CC285BCCA50076642E /* Router.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		025978C92859BFEA006D82D0 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 		025978CA2859C09B006D82D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				027546DA285BFC8A0076642E /* DrawingManager */,
 				0231ED582859169E00F5EEB5 /* DrawingViewController.swift */,
 			);
 			path = View;
@@ -193,7 +197,7 @@
 		025978CC2859C0B4006D82D0 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				025978CF2859C14D006D82D0 /* DrawingPresenter.swift */,
+				025978CF2859C14D006D82D0 /* Presenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -201,6 +205,7 @@
 		025978D12859C3E6006D82D0 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				027546CA285BCC2B0076642E /* HistoryPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -208,18 +213,11 @@
 		025978D22859C3F0006D82D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				027546CE285BE3920076642E /* History Cell */,
+				027546CF285BE4E10076642E /* History Manager */,
 				0231ED6B2859255000F5EEB5 /* HistoryViewController.swift */,
-				027546C6285B1AD60076642E /* HistoryCell.swift */,
-				027546C7285B1AD60076642E /* HistoryCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		025978D32859C3F6006D82D0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		025978D42859C469006D82D0 /* Error */ = {
@@ -228,6 +226,39 @@
 				025978DE285A57C4006D82D0 /* Errors.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		026A4B072864E94C007E32EB /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				026A4B082864E96D007E32EB /* Assembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		027546CE285BE3920076642E /* History Cell */ = {
+			isa = PBXGroup;
+			children = (
+				027546C7285B1AD60076642E /* HistoryCell.xib */,
+				027546C6285B1AD60076642E /* HistoryCell.swift */,
+			);
+			path = "History Cell";
+			sourceTree = "<group>";
+		};
+		027546CF285BE4E10076642E /* History Manager */ = {
+			isa = PBXGroup;
+			children = (
+				027546D0285BE4FC0076642E /* HistoryManager.swift */,
+			);
+			path = "History Manager";
+			sourceTree = "<group>";
+		};
+		027546DA285BFC8A0076642E /* DrawingManager */ = {
+			isa = PBXGroup;
+			children = (
+				027546DB285BFC9F0076642E /* DrawingManager.swift */,
+			);
+			path = DrawingManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,13 +337,18 @@
 				025978DB285A576D006D82D0 /* CoreDataStorage.swift in Sources */,
 				0231ED592859169E00F5EEB5 /* DrawingViewController.swift in Sources */,
 				0231ED552859169E00F5EEB5 /* AppDelegate.swift in Sources */,
+				027546D1285BE4FC0076642E /* HistoryManager.swift in Sources */,
+				027546DC285BFC9F0076642E /* DrawingManager.swift in Sources */,
 				025978E5285AAD59006D82D0 /* SketchingApp.xcdatamodeld in Sources */,
 				027546C8285B1AD60076642E /* HistoryCell.swift in Sources */,
-				025978D02859C14D006D82D0 /* DrawingPresenter.swift in Sources */,
+				025978D02859C14D006D82D0 /* Presenter.swift in Sources */,
+				027546CB285BCC2B0076642E /* HistoryPresenter.swift in Sources */,
 				025978DF285A57C4006D82D0 /* Errors.swift in Sources */,
 				0231ED6C2859255000F5EEB5 /* HistoryViewController.swift in Sources */,
+				026A4B092864E96D007E32EB /* Assembly.swift in Sources */,
 				025978CE2859C0FD006D82D0 /* DrawingModel.swift in Sources */,
 				0231ED572859169E00F5EEB5 /* SceneDelegate.swift in Sources */,
+				027546CD285BCCA50076642E /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

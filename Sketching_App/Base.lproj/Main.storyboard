@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C0x-Hl-uSe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -14,17 +14,17 @@
         <!--Drawing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="DrawingViewControllerID" title="Drawing" id="BYZ-38-t0r" customClass="DrawingViewController" customModule="Sketching_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DrawingViewController" title="Drawing" id="BYZ-38-t0r" customClass="DrawingViewController" customModule="Sketching_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QqG-b1-WnA" userLabel="canvasView" customClass="PKCanvasView">
-                                <rect key="frame" x="0.0" y="94" width="414" height="719"/>
+                                <rect key="frame" x="0.0" y="152" width="414" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nrg-N9-kml" userLabel="drawingOptionsStackView">
-                                <rect key="frame" x="0.0" y="35" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="E1a-Lw-x5X" userLabel="finalizeDrawingButton">
                                         <rect key="frame" x="0.0" y="17" width="18.5" height="16.5"/>
@@ -83,11 +83,11 @@
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
                             <constraint firstItem="QqG-b1-WnA" firstAttribute="leading" secondItem="4Pt-lL-1s5" secondAttribute="leading" id="B9e-zi-2gf"/>
-                            <constraint firstItem="QqG-b1-WnA" firstAttribute="top" secondItem="4Pt-lL-1s5" secondAttribute="top" constant="50" id="Dzc-ip-Fx4"/>
                             <constraint firstItem="Nrg-N9-kml" firstAttribute="trailing" secondItem="4Pt-lL-1s5" secondAttribute="trailing" id="Ica-73-cxD"/>
                             <constraint firstItem="Nrg-N9-kml" firstAttribute="leading" secondItem="4Pt-lL-1s5" secondAttribute="leading" id="SZd-Yd-W60"/>
                             <constraint firstItem="4Pt-lL-1s5" firstAttribute="bottom" secondItem="QqG-b1-WnA" secondAttribute="bottom" id="Tu4-nX-Z6x"/>
-                            <constraint firstItem="Nrg-N9-kml" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="35" id="Xlb-CM-yqM"/>
+                            <constraint firstItem="QqG-b1-WnA" firstAttribute="top" secondItem="Nrg-N9-kml" secondAttribute="bottom" constant="2" id="dHQ-gg-OAg"/>
+                            <constraint firstItem="Nrg-N9-kml" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="100" id="gqx-jA-NrT"/>
                             <constraint firstItem="4Pt-lL-1s5" firstAttribute="trailing" secondItem="QqG-b1-WnA" secondAttribute="trailing" id="rIR-LF-Ssf"/>
                         </constraints>
                     </view>
@@ -103,20 +103,20 @@
         <!--History-->
         <scene sceneID="fmK-8N-V4G">
             <objects>
-                <viewController storyboardIdentifier="PreviewViewControllerID" title="Preview" id="VEb-Be-AFA" userLabel="History" customClass="HistoryViewController" customModule="Sketching_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryViewController" title="Preview" id="VEb-Be-AFA" userLabel="History" customClass="HistoryViewController" customModule="Sketching_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TsT-RC-hJO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9kI-i3-dcC">
-                                <rect key="frame" x="0.0" y="32" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6ar-yW-Cec"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hA2-UR-BTb">
-                                <rect key="frame" x="0.0" y="82" width="414" height="731"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="tabbarControllerIdentifier" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hA2-UR-BTb">
+                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r5S-XQ-WOV">
                                     <size key="itemSize" width="128" height="128"/>
@@ -141,11 +141,11 @@
                         <constraints>
                             <constraint firstItem="hA2-UR-BTb" firstAttribute="top" secondItem="9kI-i3-dcC" secondAttribute="bottom" id="Bl0-bK-hFK"/>
                             <constraint firstItem="3AF-vA-cJp" firstAttribute="bottom" secondItem="hA2-UR-BTb" secondAttribute="bottom" id="HgD-Xg-osp"/>
+                            <constraint firstItem="9kI-i3-dcC" firstAttribute="top" secondItem="TsT-RC-hJO" secondAttribute="top" constant="100" id="Xh2-xS-e3U"/>
                             <constraint firstItem="9kI-i3-dcC" firstAttribute="trailing" secondItem="3AF-vA-cJp" secondAttribute="trailing" id="XnR-Ku-yUn"/>
                             <constraint firstItem="9kI-i3-dcC" firstAttribute="leading" secondItem="3AF-vA-cJp" secondAttribute="leading" id="dch-E8-94c"/>
                             <constraint firstItem="hA2-UR-BTb" firstAttribute="leading" secondItem="3AF-vA-cJp" secondAttribute="leading" id="fHz-7L-swG"/>
                             <constraint firstItem="3AF-vA-cJp" firstAttribute="trailing" secondItem="hA2-UR-BTb" secondAttribute="trailing" id="whN-ml-fDJ"/>
-                            <constraint firstItem="9kI-i3-dcC" firstAttribute="top" secondItem="TsT-RC-hJO" secondAttribute="top" constant="32" id="x4J-db-XEp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="PRm-5q-vcN" userLabel="History"/>
@@ -157,25 +157,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOB-7C-qki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1147.8260869565217" y="-56.25"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="dcm-kf-L6d">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="C0x-Hl-uSe" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yc2-PI-oJ7">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Pzz-XR-oe6"/>
-                        <segue destination="VEb-Be-AFA" kind="relationship" relationship="viewControllers" id="H8b-DN-KGg"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dZI-bp-xRE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="697" y="-810"/>
         </scene>
     </scenes>
     <resources>

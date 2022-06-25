@@ -9,6 +9,8 @@ import Foundation
 
 
 struct ErrorModel: Codable {
-    let status: String?
     let message: String?
 }
+
+
+//enum with errors typers for cashing

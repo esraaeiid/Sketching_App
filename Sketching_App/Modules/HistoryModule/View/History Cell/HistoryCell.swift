@@ -45,7 +45,7 @@ class HistoryCell: UICollectionViewCell {
     
     @IBAction func deleteDrawingButton(_ sender: UIButton) {
         if let drawingInfo = drawingInfo {
-            delegate?.deleteDrawing(with: drawingInfo.id)
+            delegate?.deleteDrawing(with: drawingInfo.id ?? UUID())
         }
 
     }

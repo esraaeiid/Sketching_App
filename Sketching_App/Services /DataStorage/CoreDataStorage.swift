@@ -41,10 +41,10 @@ class CoreDataStorage {
     private func save(completionHandler: @escaping(Bool) -> (), _ model: DrawingModel?) {
         let drawingModel = NSEntityDescription.insertNewObject(forEntityName: "DrawingDataModel", into: context) as! DrawingDataModel
         drawingModel.setValue(model?.id, forKey: "id")
-        drawingModel.setValue(model?.drawing.dataRepresentation(), forKey: "drawing")
+        drawingModel.setValue(model?.drawing?.dataRepresentation(), forKey: "drawing")
         drawingModel.setValue(model?.name, forKey: "name")
         drawingModel.setValue(model?.date, forKey: "date")
-        drawingModel.setValue(model?.thumbnail.jpegData(compressionQuality: 1), forKey: "thumbnail")
+        drawingModel.setValue(model?.thumbnail?.jpegData(compressionQuality: 1), forKey: "thumbnail")
         do{
             try context.save()
             completionHandler(true)
@@ -88,8 +88,8 @@ class CoreDataStorage {
         guard self.fetch().map({$0.id}).contains(model?.id) else { return }
         self.fetch().filter({$0.id == model?.id}).forEach { (obj) in
             obj.name = model?.name
-            obj.thumbnail = model?.thumbnail.jpegData(compressionQuality: 1)
-            obj.drawing = model?.drawing.dataRepresentation()
+            obj.thumbnail = model?.thumbnail?.jpegData(compressionQuality: 1)
+            obj.drawing = model?.drawing?.dataRepresentation()
             obj.date = model?.date
             do{
                 try context.save()
