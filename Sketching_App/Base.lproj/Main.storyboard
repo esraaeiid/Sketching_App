@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -20,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QqG-b1-WnA" userLabel="canvasView" customClass="PKCanvasView">
-                                <rect key="frame" x="0.0" y="152" width="414" height="710"/>
+                                <rect key="frame" x="0.0" y="150" width="414" height="712"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nrg-N9-kml" userLabel="drawingOptionsStackView">
@@ -78,15 +79,117 @@
                                     <constraint firstAttribute="height" constant="50" id="6Fq-Vc-uAc"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7eO-Zr-vIj" userLabel="finalizeDrawingStackView">
+                                <rect key="frame" x="0.0" y="100" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wMU-8n-HMR" userLabel="saveDrawingButton">
+                                        <rect key="frame" x="0.0" y="8" width="39" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" name="AccentColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CY8-Ad-6SW"/>
+                                            <action selector="saveDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RkN-g4-IB5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXc-uC-umN" userLabel="closeFinalizeViewButton">
+                                        <rect key="frame" x="375" y="10" width="39" height="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Close"/>
+                                        <connections>
+                                            <action selector="closeFinalizeDrawingViewButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zEo-PC-hVH"/>
+                                            <action selector="expandDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8UQ-re-NX6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="IhB-ad-AVx"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dPd-7x-EY2"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fHV-1b-8ax" userLabel="editDrawingStackView">
+                                <rect key="frame" x="0.0" y="100" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bla-CG-AGG" userLabel="selectLineButton">
+                                        <rect key="frame" x="0.0" y="10" width="44" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Select">
+                                            <color key="titleColor" name="AccentColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="finalizeDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uq7-nU-UdN"/>
+                                            <action selector="selectLineButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hes-Ly-BmK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qgj-hS-MVl" userLabel="deleteDrawingButton">
+                                        <rect key="frame" x="92.5" y="10" width="45" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleColor" name="AccentColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vgz-MX-QX0"/>
+                                            <action selector="editDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4XW-J8-4Z0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="F1M-rG-LNS" userLabel="undoButton">
+                                        <rect key="frame" x="190" y="10" width="37" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Undo"/>
+                                        <connections>
+                                            <action selector="startDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G7j-CK-tPM"/>
+                                            <action selector="undoButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FRc-2u-Qz4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="JDz-iV-dRE" userLabel="redoButton">
+                                        <rect key="frame" x="283.5" y="10" width="36" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Redo"/>
+                                        <connections>
+                                            <action selector="redoButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yny-I5-xmy"/>
+                                            <action selector="uploadImageButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c2n-1Y-UIY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8G-jF-tV9" userLabel="closeEditingViewButton">
+                                        <rect key="frame" x="375" y="10" width="39" height="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Close"/>
+                                        <connections>
+                                            <action selector="closeEditDrawingViewButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JIs-R5-9ry"/>
+                                            <action selector="expandDrawingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YKs-Gx-hfI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="ZcK-tz-Ss5"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7wg-oF-Mca"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Pt-lL-1s5"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
+                            <constraint firstItem="fHV-1b-8ax" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="100" id="0dz-W2-XUN"/>
+                            <constraint firstAttribute="trailing" secondItem="7eO-Zr-vIj" secondAttribute="trailing" id="7Nz-jQ-Ywr"/>
                             <constraint firstItem="QqG-b1-WnA" firstAttribute="leading" secondItem="4Pt-lL-1s5" secondAttribute="leading" id="B9e-zi-2gf"/>
                             <constraint firstItem="Nrg-N9-kml" firstAttribute="trailing" secondItem="4Pt-lL-1s5" secondAttribute="trailing" id="Ica-73-cxD"/>
                             <constraint firstItem="Nrg-N9-kml" firstAttribute="leading" secondItem="4Pt-lL-1s5" secondAttribute="leading" id="SZd-Yd-W60"/>
                             <constraint firstItem="4Pt-lL-1s5" firstAttribute="bottom" secondItem="QqG-b1-WnA" secondAttribute="bottom" id="Tu4-nX-Z6x"/>
-                            <constraint firstItem="QqG-b1-WnA" firstAttribute="top" secondItem="Nrg-N9-kml" secondAttribute="bottom" constant="2" id="dHQ-gg-OAg"/>
+                            <constraint firstAttribute="trailing" secondItem="fHV-1b-8ax" secondAttribute="trailing" id="Uht-VL-w8X"/>
+                            <constraint firstItem="QqG-b1-WnA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="Zp1-al-4fh"/>
+                            <constraint firstItem="fHV-1b-8ax" firstAttribute="leading" secondItem="4Pt-lL-1s5" secondAttribute="leading" id="acW-6v-cUG"/>
+                            <constraint firstItem="7eO-Zr-vIj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="100" id="bCK-94-8n4"/>
+                            <constraint firstItem="7eO-Zr-vIj" firstAttribute="leading" secondItem="4Pt-lL-1s5" secondAttribute="leading" id="fg8-61-iUy"/>
                             <constraint firstItem="Nrg-N9-kml" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="100" id="gqx-jA-NrT"/>
                             <constraint firstItem="4Pt-lL-1s5" firstAttribute="trailing" secondItem="QqG-b1-WnA" secondAttribute="trailing" id="rIR-LF-Ssf"/>
                         </constraints>
@@ -94,6 +197,9 @@
                     <tabBarItem key="tabBarItem" title="Draw" image="scribble" catalog="system" selectedImage="scribble" id="Amm-pW-FOZ" userLabel="Draw"/>
                     <connections>
                         <outlet property="canvasView" destination="QqG-b1-WnA" id="nHP-dZ-uzR"/>
+                        <outlet property="drawingOptionsTopConstraint" destination="gqx-jA-NrT" id="795-KX-lFO"/>
+                        <outlet property="editDrawingTopConstraint" destination="0dz-W2-XUN" id="nQm-q1-qh0"/>
+                        <outlet property="finazlizeDrawingTopConstraint" destination="bCK-94-8n4" id="Pu5-QU-hdZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,6 +272,9 @@
         <image name="rectangle.expand.vertical" catalog="system" width="128" height="122"/>
         <image name="ruler" catalog="system" width="128" height="57"/>
         <image name="scribble" catalog="system" width="128" height="118"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

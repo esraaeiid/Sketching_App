@@ -16,21 +16,21 @@ class DrawingViewController: UIViewController {
     @IBOutlet weak var canvasView: PKCanvasView!
 
     //drawingOptions StackView
-    @IBOutlet weak var drawingOptionsStackView: UIStackView!
-
+    @IBOutlet weak var drawingOptionsTopConstraint: NSLayoutConstraint!
+    
     //editDrawing StackView
-
+    @IBOutlet weak var editDrawingTopConstraint: NSLayoutConstraint!
+    
     //finalizeDrawing StackView
+    @IBOutlet weak var finazlizeDrawingTopConstraint: NSLayoutConstraint!
 
-
+    
     private var dataSourceManager: DrawingManagerProtocol?
     private var presenter: DrawingPresenterProtocol?
 
   
     var isPenSelected = false
     var undoedStrokes:  [PKStroke] = []
-
-    private var coreDataStorage = CoreDataStorage.instance
 
 
 
@@ -46,6 +46,11 @@ class DrawingViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+
+        self.editDrawingTopConstraint.constant = -10
+        self.finazlizeDrawingTopConstraint.constant = -10
+
         setupCanvasView()
     }
 
@@ -63,25 +68,18 @@ class DrawingViewController: UIViewController {
         self.presenter = presenter
     }
 
-    //MARK: - Actions
+
+    //MARK: - Drawing Options View Actions
 
     //drawingOptions StackView Actions
     @IBAction func finalizeDrawingButtonAction(_ sender: UIButton) {
-      
-//        if let drawingModel = dataSourceManager.drawingModel {
-//            coreDataStorage.saveDrawing(completionHandler: { isSaved in
-//                print("Saved!")
-//            }, model: drawingModel)
-//        } else {
-//            drawingModel = .init()
-//            coreDataStorage.saveDrawing(completionHandler: { isSaved in
-//                print("Saved!")
-//            }, model: drawingModel)
-//        }
 
+        animateView(viewToTop: drawingOptionsTopConstraint, viewToBottom: finazlizeDrawingTopConstraint)
+        
     }
 
     @IBAction func editDrawingButtonAction(_ sender: UIButton) {
+        animateView(viewToTop: drawingOptionsTopConstraint, viewToBottom: editDrawingTopConstraint)
 
     }
 
@@ -94,40 +92,82 @@ class DrawingViewController: UIViewController {
     }
 
     @IBAction func startDrawingButtonAction(_ sender: UIButton) {
-        /* - hide toolPicker
-           - hide drawingOptionsStackView
-           - show collapse button  */
 
         self.isPenSelected = !isPenSelected
         handlePenButtonSelection()
+    }
+
+    //MARK: - Finalize Drawing View Actions
+
+    @IBAction func saveDrawingButtonAction(_ sender: UIButton) {
+
+        /// show alert for to add name
+
+
+        /// save to local
+        let drawing = DrawingModel(name: "TEST", date: .init())
+        presenter?.saveDrawing(m: drawing)
+
+
+        ///  show loading view
+
+
+        /// clear canvas view
+    }
+
+
+    @IBAction func closeFinalizeDrawingViewButtonAction(_ sender: UIButton) {
+        animateView(viewToTop: finazlizeDrawingTopConstraint, viewToBottom: drawingOptionsTopConstraint)
+
+    }
+
+    //MARK: - Edit Drawing View Actions
+
+    @IBAction func selectLineButtonAction(_ sender: UIButton) {
+
+
+    }
+
+    @IBAction func deleteDrawingButtonAction(_ sender: UIButton) {
+
+
+    }
+
+    @IBAction func undoButtonAction(_ sender: UIButton) {
+
+
+    }
+
+    @IBAction func redoButtonAction(_ sender: UIButton) {
+
+
+    }
+
+    @IBAction func closeEditDrawingViewButtonAction(_ sender: UIButton) {
+        animateView(viewToTop: editDrawingTopConstraint, viewToBottom: drawingOptionsTopConstraint)
 
     }
 
 
 
-    
+    /// Helper function to animate top views
+    /// - Parameters:
+    ///   - viewToTop: view that should animate to top of the screen
+    ///   - viewToBottom: view that should animate to bottom of the screen
+    func animateView(viewToTop:NSLayoutConstraint!, viewToBottom: NSLayoutConstraint!){
 
-    ///
-    ///  adjust the canvas view size when the tool picker changes which part
-    /// of the canvas view it obscures, if any.
-    ///
-    func updateLayout(for toolPicker: PKToolPicker) {
-        let obscuredFrame = toolPicker.frameObscured(in: view)
+        viewToTop.constant = -10
 
-        // If the tool picker is floating over the canvas
-        if obscuredFrame.isNull {
-            canvasView.contentInset = .zero
-        }
-
-        // Otherwise, the bottom of the canvas should be inset to the top of the
-        // tool picker
-        else {
-            canvasView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: view.bounds.maxY - obscuredFrame.minY, right: 0)
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+            self.view.layoutIfNeeded()
+        } completion: { _  in
+            viewToBottom.constant = 100
         }
 
     }
 
     
+
 
 
 
@@ -140,13 +180,12 @@ class DrawingViewController: UIViewController {
                 self.tabBarController?.tabBar.layer.zPosition = -1
 
             } completion: { _  in
-//                self.toolPicker.setVisible(true, forFirstResponder: self.canvasView)
+                self.dataSourceManager?.toolPicker.setVisible(true, forFirstResponder: self.canvasView)
             }
 
         } else {
             UIView.animate(withDuration: 0, delay: 0.2, options: .curveEaseInOut) {
-//                self.toolPicker.setVisible(false, forFirstResponder: self.canvasView)
-
+                 self.dataSourceManager?.toolPicker.setVisible(false, forFirstResponder: self.canvasView)
             } completion: { _  in
                 self.tabBarController?.tabBar.layer.zPosition = 0
             }

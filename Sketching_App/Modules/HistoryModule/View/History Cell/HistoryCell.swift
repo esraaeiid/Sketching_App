@@ -11,9 +11,27 @@ protocol DrawingDeletion: AnyObject {
     func deleteDrawing(with id: UUID)
 }
 
-class HistoryCell: UICollectionViewCell {
+extension HistoryCell {
+    struct CellConfigurator<Model>{
+        let nameKeyPath: KeyPath<Model, String?>
+        let dateKeyPath: KeyPath<Model, Date?>
+        let imageKeyPath: KeyPath<Model, UIImage?>
+        let idKeyPath: KeyPath<Model, UUID>
 
-    var drawingInfo: DrawingModel?
+
+        func configure(_ cell: HistoryCell, for model: Model){
+            cell.nameForDrawingLabel.text = model[keyPath: nameKeyPath]
+            cell.drawingCreationDateLabel.text = "\(model[keyPath: dateKeyPath] ?? .init())"
+            cell.drawingImageView.image = model[keyPath: imageKeyPath]
+        }
+
+        func modelID(_ cell: HistoryCell, for model: Model){
+            cell.modelID = model[keyPath: idKeyPath]
+        }
+    }
+}
+
+class HistoryCell: UICollectionViewCell {
 
     // MARK: - IBOutlets
 
@@ -22,7 +40,7 @@ class HistoryCell: UICollectionViewCell {
     @IBOutlet weak var drawingImageView: UIImageView!
 
     weak var delegate: DrawingDeletion?
-
+    var modelID: UUID = .init()
 
     static let identifier = "HistoryCell"
 
@@ -35,19 +53,9 @@ class HistoryCell: UICollectionViewCell {
         return UINib(nibName: "HistoryCell", bundle: nil)
     }
 
-    func configure(){
-        if let drawingInfo = drawingInfo {
-            self.nameForDrawingLabel.text = drawingInfo.name
-            self.drawingCreationDateLabel.text = "\(drawingInfo.date)"
-            self.drawingImageView.image = drawingInfo.thumbnail
-        }
-    }
     
     @IBAction func deleteDrawingButton(_ sender: UIButton) {
-        if let drawingInfo = drawingInfo {
-            delegate?.deleteDrawing(with: drawingInfo.id ?? UUID())
-        }
-
+            delegate?.deleteDrawing(with: modelID)
     }
 
 

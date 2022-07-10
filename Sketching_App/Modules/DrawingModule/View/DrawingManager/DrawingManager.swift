@@ -11,6 +11,7 @@ import UIKit
 
 
 protocol DrawingManagerProtocol {
+    var toolPicker: PKToolPicker! { get set }
     func setup()
     func update(_ model: DrawingModel)
     func setDelegate(_ delegate: DrawingManagerDelegate?)
@@ -72,6 +73,7 @@ class DrawingManager: NSObject, DrawingManagerProtocol {
         canvasView?.becomeFirstResponder()
     }
 
+    //TODO: consider moving this method to UIView class 
     func updateLayout(for toolPicker: PKToolPicker) {
         let obscuredFrame = toolPicker.frameObscured(in: view ?? UIView())
 

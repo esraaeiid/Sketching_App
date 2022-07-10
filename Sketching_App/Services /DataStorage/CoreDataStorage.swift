@@ -51,7 +51,7 @@ class CoreDataStorage {
         } catch let saveIncErr {
             print("Failed to save \(saveIncErr)")
         }
-        print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
+        
 
     }
 

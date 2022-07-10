@@ -9,7 +9,7 @@ import UIKit
 import PencilKit
 
 struct DrawingModel {
-    var id: UUID?
+    var id: UUID = .init()
     var drawing: PKDrawing?
     var name: String?
     var date: Date?
@@ -20,7 +20,7 @@ struct DrawingModel {
 
     /// Helper Initializer to assign savedDrawing from disk to drawingCanvas datasource
     init (savedDrawingModel: DrawingDataModel) {
-        self.id = savedDrawingModel.id!
+        self.id = savedDrawingModel.id ?? .init()
         self.drawing = try? PKDrawing(data: savedDrawingModel.drawing ?? Data())
         self.name = savedDrawingModel.name
         self.date = savedDrawingModel.date
@@ -30,5 +30,23 @@ struct DrawingModel {
 
     /// Default Initializer
     init(){}
+
+
+    
+    /// Helper Initializer to assign new values to struct
+    init(drawing: PKDrawing? = nil,
+         name: String? = nil,
+         date: Date? = nil,
+         thumbnail: UIImage? = nil,
+         selectedDrawingStep: PKStroke? = nil ,
+         undoedDrawings: [PKStroke]? = []){
+
+        self.drawing = drawing
+        self.name = name
+        self.date = date
+        self.thumbnail = thumbnail
+        self.selectedDrawingStep = selectedDrawingStep
+        self.undoedDrawings = undoedDrawings
+    }
 
 }

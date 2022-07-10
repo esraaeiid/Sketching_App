@@ -32,6 +32,7 @@ protocol PresenterOutput: AnyObject {
 
 protocol DrawingPresenterProtocol: Presenter {
     func showDrawing()
+    func saveDrawing(m: DrawingModel)
 }
 
 
@@ -39,17 +40,38 @@ class DrawingPresenter: DrawingPresenterProtocol {
     private var router: Router?
     private var dataBase = CoreDataStorage.instance
     weak var output: PresenterOutput?
-    private var drawing: DrawingModel?
+    private var drawing: DrawingModel = .init()
+
 
 
     func showDrawing() {
-        if let drawing = drawing {
+//        if let drawing = drawing {
             //should show selected drawing
             self.output?.update(.finishedWithSuccess(.drawingCanvas(drawing)))
-        } else {
-            self.output?.update(.finishedWithSuccess(.drawingCanvas(drawing ?? .init())))
-        }
+//        } else {
+//            self.output?.update(.finishedWithSuccess(.drawingCanvas(drawing ?? .init())))
+//        }
 
+    }
+
+    func saveDrawing(m: DrawingModel) {
+//        if let drawingModel = drawing {
+        
+        drawing = m  // update new drawings values
+            dataBase.saveDrawing(completionHandler: { isSaved in
+                print("Saved?", isSaved)
+                print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
+            }, model: drawing)
+        print("DRAWING", drawing)
+//        }
+//        else {
+//
+//            drawing = .init()
+//            dataBase.saveDrawing(completionHandler: { isSaved in
+//                print("Saved!")
+//                print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
+//            }, model: drawing)
+//        }
     }
 
 

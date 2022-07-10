@@ -14,6 +14,7 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
 
     var drawings: [DrawingModel] = []
+    private var dataBase = CoreDataStorage.instance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,14 @@ class HistoryViewController: UIViewController {
         historyCollectionView.register(HistoryCell.nib(),
                                        forCellWithReuseIdentifier: HistoryCell.identifier)
     }
-    
+
+
+    func drawingsHistory() -> [DrawingModel]{
+
+        let items = dataBase.fetch().map({ DrawingModel(savedDrawingModel: $0) })
+        print(dataBase.fetch().count, "ehhh")
+        return  items
+    }
 
 
 }
@@ -51,7 +59,7 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return  drawingsHistory().count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -60,8 +68,16 @@ extension HistoryViewController: UICollectionViewDelegate, UICollectionViewDataS
             assertionFailure("couldn't load HistoryCollectionViewCell")
             return UICollectionViewCell()
         }
-//        cell.drawingInfo = drawings[indexPath.row]
-        cell.configure()
+
+        let drawingConfigurator = HistoryCell.CellConfigurator<DrawingModel>(nameKeyPath: \.name,
+                                                                             dateKeyPath: \.date,
+                                                                             imageKeyPath: \.thumbnail,
+                                                                             idKeyPath: \.id)
+
+        let drawing = drawingsHistory()[indexPath.row]
+        drawingConfigurator.configure(cell, for: drawing)
+        drawingConfigurator.modelID(cell, for: drawing)
+
         cell.delegate = self
 
         return cell
